@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Last Code</title>
+  <meta name="description" content="Un videojuego futurista ambientado en el espacio. Próximamente en Steam.">
+  <meta property="og:title" content="The Last Code - Próximamente en Steam">
+  <meta property="og:description" content="Explora el espacio, sobrevive y conquista lo desconocido.">
+  <meta property="og:image" content="URL_DE_TU_IMAGEN_DESTACADA">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./assets/images/logotype_Nybe_Games.png" type="image/png" />
+
+  <style>
+        :root {
+      --bg-dark: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+      --bg-light: linear-gradient(180deg, #ffffff 0%, #eeeeee 100%);
+      --text-dark: #f0f0f0;
+      --text-light: #111;
+
+      /* Colores en modo oscuro */
+      --accent: #00ffff;
+      --accent-dark: #00cccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      transition: background 0.4s, color 0.4s;
+    }
+
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+
+      /* Colores en modo claro */
+      --accent: #ff8800;
+      --accent-dark: #cc6e00;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid #222;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .controls {
+      margin-top: 1rem;
+    }
+
+    .controls button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .controls button:hover {
+      background: var(--accent-dark);
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 9rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .cta {
+      background: #00ffff22;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin-top: 3rem;
+    }
+
+    .cta h2 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 1px var(--accent);
+      animation: flicker 3s infinite;
+    }
+
+    .cta a {
+      background: #00ffff;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #00cccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 1.4rem;
+    }
+
+        .logo-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-title h1 {
+      margin: 0;
+    }
+
+        .logo-title .logo {
+      height: 135px;
+      width: auto;
+      filter: drop-shadow(0 0 6px #00ffffaa);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .logo-title {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .logo-title .logo {
+        position: static;
+        transform: none;
+        height: 50px;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+        /* 🔹 Barra lateral fija de Discord */
+    .follow-discord {
+      position: fixed;
+      top: 70%;
+      right: 0;
+      background: #00ffff;
+      color: #000;
+      padding: 1rem;
+      border-radius: 8px 0 0 8px;
+      box-shadow: -2px 2px 8px rgba(0, 255, 255, 0.3);
+      font-weight: bold;
+      z-index: 1000;
+      width: 240px;
+      height: auto;
+    }
+
+    .follow-discord a {
+      color: #000;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+    }
+
+    .follow-discord:hover {
+      background: #00cccc;
+    }
+      @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      text-shadow: 0 0 1px var(--accent), 0 0 4px var(--accent), 0 0 23px var(--accent);
+    }
+
+    20%, 24%, 55% {
+      opacity: 0.6;
+      text-shadow: none;
+    }
+  }
+
+  /* Aplica al título del juego */
+  h1 {
+    font-size: 3rem;
+    color: var(--accent);
+    text-shadow: 0 0 1px var(--accent);
+    animation: flicker 3s infinite;
+  }
+  @keyframes futuristic-press {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffffaa;
+  }
+  50% {
+    transform: scale(0.9);
+    box-shadow: 0 0 20px #00ffffcc, 0 0 40px #00ffffff;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffffaa;
+  }
+}
+
+.controls button:active {
+  animation: futuristic-press 0.4s ease forwards;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="./assets/images/logotype_Nybe_Games.png" alt="Logo" class="logo" />
+      <h1>The Last Code</h1>
+    </div>
+
+    <p class="tagline" data-es="Explora. Sobrevive. Escapa." data-en="Explore. Survive. Escape.">Explora. Sobrevive. Escapa.</p>
+    <div class="controls">
+      <button onclick="switchLang('es')">Español</button>
+      <button onclick="switchLang('en')">English</button>
+      <button onclick="toggleTheme()">🌓 Tema</button>
+    </div>
+  </header>
+
+  <section>
+    <h2 data-es="Sobre el juego" data-en="About the Game">Sobre el juego</h2>
+    <p data-es="La estación espacial ha sido tomada por inteligencias artificiales fuera de control. No recuerdas cómo llegaste aquí... pero algo no cuadra. Explora, sobrevive y descubre la verdad. Tu escape es solo el principio." 
+       data-en="The space station has been overtaken by rogue artificial intelligences. You don’t remember how you got here… but something isn’t right. Explore, survive, and uncover the truth. Escape is just the beginning.">
+      Sumérgete en un universo futurista donde deberás explorar galaxias, recolectar recursos, y enfrentarte a desafíos alienígenas. Desarrollado por un equipo indie apasionado por la ciencia ficción.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-es="Galería" data-en="Gallery">Galería</h2>
+    <div class="gallery">
+      <img src="./assets/images/GUI_2.png" alt="Captura 1">
+      <img src="./assets/images/Image_1.png" alt="Captura 2">
+      <img src="./assets/images/Image_2.png" alt="Captura 3">
+      <img src="./assets/images/image_3.png" alt="Captura 4">
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 data-es="Próximamente en Steam" data-en="Coming Soon on Steam">Próximamente en Steam</h2>
+  </section>
+
+  <footer>
+    <p data-es="Síguenos en redes" data-en="Follow us on social media">Síguenos en redes</p>
+    <div class="social-links">
+      <a href="https://x.com/NybeGames" target="_blank">X</a>
+      <a href="https://discord.gg/jCxx6uHe" target="_blank">💬</a>
+    </div>
+    <p>© 2025 The Last Code</p>
+  </footer>
+
+  <!-- 🔹 Barra Discord Fija -->
+   <div class="follow-discord" data-es="<a href='https://discord.gg/jCxx6uHe' target='_blank'>📢Sigue el desarrollo en Discord</a>"
+                            data-en="<a href='https://discord.gg/jCxx6uHe' target='_blank'>📢Follow the development on Discord</a>">
+    <!-- El contenido inicial será sobrescrito por JS -->
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+
+    window.onload = () => {
+      switchLang('en');
+    }
+  </script>
+
+</body>
+</html>
